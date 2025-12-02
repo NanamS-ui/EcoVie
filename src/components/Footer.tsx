@@ -14,7 +14,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="mx-auto max-w-md text-lg leading-relaxed text-gray-400 md:mx-0">
-              Un blog dédié à l&apos;écologie et au développement durable. Ensemble,
+              Un blog dédié aux éco-délégués sur l&apos;écologie et au développement durable. Ensemble,
               construisons un avenir plus vert pour notre planète.
             </p>
             <div className="my-4 h-[2px] w-24 rounded-full bg-green-500/50" />
