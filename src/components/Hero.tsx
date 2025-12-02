@@ -7,14 +7,11 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({ onExplore }) => {
     const images = [
-        'https://images.pexels.com/photos/1108572/pexels-photo-1108572.jpeg', // forêt
-        'https://images.pexels.com/photos/132037/pexels-photo-132037.jpeg',   // rivière
-        'https://images.pexels.com/photos/459225/pexels-photo-459225.jpeg',   // montagne
-        'https://images.pexels.com/photos/34950/pexels-photo.jpg',            // lever de soleil dans la forêt
-        'https://images.pexels.com/photos/158607/cairn-fog-mystical-background-158607.jpeg', // brouillard
-        'https://images.pexels.com/photos/417173/pexels-photo-417173.jpeg',  // prairie
-        'https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg',  // rivière et rochers
-        'https://images.pexels.com/photos/34950/pexels-photo.jpg',            // forêt dense
+        '/images/blog-1.jpg',
+        '/images/blog-2.jpg',
+        '/images/blog-3.jpg',
+        '/images/blog-4.jpg',
+        '/images/blog-6.jpg',
     ];
 
 
