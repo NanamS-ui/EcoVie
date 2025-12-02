@@ -1,4 +1,5 @@
-import { Leaf } from 'lucide-react';
+import { useState } from 'react';
+import { Leaf, Menu, X } from 'lucide-react';
 
 interface HeaderProps {
   onNavigate: (page: string) => void;
@@ -6,12 +7,19 @@ interface HeaderProps {
 }
 
 export default function Header({ onNavigate, currentPage }: HeaderProps) {
+  const [isMobileOpen, setIsMobileOpen] = useState(false);
+
+  const handleNavigateClick = (page: string) => {
+    onNavigate(page);
+    setIsMobileOpen(false);
+  };
+
   return (
     <header className="sticky top-0 z-50 border-b border-gray-100 bg-white/80 backdrop-blur-md">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <button
-            onClick={() => onNavigate('home')}
+            onClick={() => handleNavigateClick('home')}
             className="group flex items-center space-x-2 text-green-700 hover:text-green-800 transition-colors"
           >
             <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-green-100 group-hover:bg-green-200 transition-colors">
@@ -20,9 +28,10 @@ export default function Header({ onNavigate, currentPage }: HeaderProps) {
             <span className="text-xl font-bold tracking-tight">ÉcoVie</span>
           </button>
 
+          {/* Desktop nav */}
           <div className="hidden md:flex items-center space-x-8">
             <button
-              onClick={() => onNavigate('home')}
+              onClick={() => handleNavigateClick('home')}
               className={`relative text-sm font-medium tracking-wide transition-colors ${
                 currentPage === 'home'
                   ? 'text-green-700'
@@ -37,7 +46,7 @@ export default function Header({ onNavigate, currentPage }: HeaderProps) {
               />
             </button>
             <button
-              onClick={() => onNavigate('articles')}
+              onClick={() => handleNavigateClick('articles')}
               className={`relative text-sm font-medium tracking-wide transition-colors ${
                 currentPage === 'articles'
                   ? 'text-green-700'
@@ -52,7 +61,7 @@ export default function Header({ onNavigate, currentPage }: HeaderProps) {
               />
             </button>
             <button
-              onClick={() => onNavigate('contact')}
+              onClick={() => handleNavigateClick('contact')}
               className={`relative text-sm font-medium tracking-wide transition-colors ${
                 currentPage === 'contact'
                   ? 'text-green-700'
@@ -67,7 +76,54 @@ export default function Header({ onNavigate, currentPage }: HeaderProps) {
               />
             </button>
           </div>
+
+          {/* Mobile menu button */}
+          <button
+            className="inline-flex items-center justify-center rounded-full p-2 text-gray-700 hover:bg-gray-100 md:hidden"
+            onClick={() => setIsMobileOpen((prev) => !prev)}
+            aria-label="Ouvrir le menu"
+          >
+            {isMobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
         </div>
+
+        {/* Mobile nav */}
+        {isMobileOpen && (
+          <div className="md:hidden pb-3">
+            <div className="flex flex-col space-y-1 rounded-2xl border border-gray-100 bg-white/95 p-2 shadow-md">
+              <button
+                onClick={() => handleNavigateClick('home')}
+                className={`w-full rounded-xl px-3 py-2 text-left text-sm font-medium ${
+                  currentPage === 'home'
+                    ? 'bg-green-50 text-green-700'
+                    : 'text-gray-700 hover:bg-gray-50'
+                }`}
+              >
+                Accueil
+              </button>
+              <button
+                onClick={() => handleNavigateClick('articles')}
+                className={`w-full rounded-xl px-3 py-2 text-left text-sm font-medium ${
+                  currentPage === 'articles'
+                    ? 'bg-green-50 text-green-700'
+                    : 'text-gray-700 hover:bg-gray-50'
+                }`}
+              >
+                Articles
+              </button>
+              <button
+                onClick={() => handleNavigateClick('contact')}
+                className={`w-full rounded-xl px-3 py-2 text-left text-sm font-medium ${
+                  currentPage === 'contact'
+                    ? 'bg-green-50 text-green-700'
+                    : 'text-gray-700 hover:bg-gray-50'
+                }`}
+              >
+                Contact
+              </button>
+            </div>
+          </div>
+        )}
       </nav>
     </header>
   );
