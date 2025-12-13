@@ -86,7 +86,7 @@ function App() {
       <>
         <Header onNavigate={handleNavigate} currentPage={currentPage} />
         <PostDetail post={selectedPost} onBack={handleBackToArticles} />
-        <Footer />
+        <Footer onNavigate={handleNavigate} />
       </>
     );
   }
@@ -220,7 +220,7 @@ function App() {
         </div>
       )}
 
-      <Footer />
+      <Footer onNavigate={handleNavigate} />
     </div>
   );
 }

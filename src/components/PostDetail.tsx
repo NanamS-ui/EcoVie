@@ -20,13 +20,13 @@ export default function PostDetail({ post, onBack }: PostDetailProps) {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <button
           onClick={onBack}
-          className="inline-flex items-center text-sm font-semibold text-green-700 hover:text-green-800 mb-6 transition-colors"
+          className="inline-flex items-center text-sm font-semibold text-green-700 hover:text-green-800 mb-6 transition-colors hover:-translate-x-[1px] transition-transform"
         >
           <ArrowLeft className="w-4 h-4 mr-2" />
           Retour aux articles
         </button>
 
-        <article className="overflow-hidden rounded-3xl border border-gray-100 bg-white/90 shadow-xl shadow-gray-200/60">
+        <article className="overflow-hidden rounded-3xl border border-gray-100 bg-white/90 shadow-xl shadow-gray-200/60 animate-fade-in">
           {post.image_url && (
             <div className="relative h-80 overflow-hidden sm:h-96">
               <img
@@ -35,7 +35,7 @@ export default function PostDetail({ post, onBack }: PostDetailProps) {
                 className="h-full w-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent" />
-              <div className="absolute bottom-6 left-6 flex flex-col gap-3 text-white drop-shadow-lg">
+              <div className="absolute bottom-6 left-6 flex flex-col gap-3 text-white drop-shadow-lg animate-fade-in" style={{ animationDelay: '0.2s' }}>
                 {post.categories && (
                   <span className="inline-flex w-fit items-center rounded-full bg-white/15 px-3 py-1 text-xs font-semibold uppercase tracking-wide">
                     {post.categories.name}
@@ -52,7 +52,7 @@ export default function PostDetail({ post, onBack }: PostDetailProps) {
             </div>
           )}
 
-          <div className="p-6 sm:p-10 lg:p-12">
+          <div className="p-6 sm:p-10 lg:p-12 animate-fade-in" style={{ animationDelay: '0.4s' }}>
             {post.excerpt && (
               <p className="mb-10 text-lg leading-relaxed text-gray-700 sm:text-xl">
                 {post.excerpt}

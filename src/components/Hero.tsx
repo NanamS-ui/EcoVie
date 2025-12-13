@@ -45,20 +45,20 @@ const Hero: React.FC<HeroProps> = ({ onExplore }) => {
 
       {/* Animated particles/shapes */}
       <div className="pointer-events-none absolute inset-0 z-[2] overflow-hidden">
-        <div className="absolute top-20 left-10 h-32 w-32 rounded-full bg-accent/20 blur-3xl animate-float" />
+        <div className="absolute top-20 left-10 h-32 w-32 rounded-full bg-green-400/20 blur-3xl animate-float" />
         <div
-          className="absolute bottom-32 right-20 h-48 w-48 rounded-full bg-primary/30 blur-3xl animate-float"
+          className="absolute bottom-32 right-20 h-48 w-48 rounded-full bg-emerald-500/30 blur-3xl animate-float"
           style={{ animationDelay: "2s" }}
         />
         <div
-          className="absolute top-1/2 left-1/4 h-24 w-24 rounded-full bg-secondary/20 blur-2xl animate-float"
+          className="absolute top-1/2 left-1/4 h-24 w-24 rounded-full bg-teal-400/20 blur-2xl animate-float"
           style={{ animationDelay: "4s" }}
         />
       </div>
 
       {/* Content */}
       <div className="relative z-10 mx-auto max-w-4xl px-4 text-center">
-        <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-white/80 backdrop-blur">
+        <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-white/80 backdrop-blur animate-fade-in">
           Blog éco-responsable
         </div>
 
@@ -67,7 +67,7 @@ const Hero: React.FC<HeroProps> = ({ onExplore }) => {
           style={{ animationDelay: "0.2s" }}
         >
           Ensemble pour une
-          <span className="block text-accent">planète durable</span>
+          <span className="block text-gradient-green">planète durable</span>
         </h1>
 
         <p
@@ -78,7 +78,7 @@ const Hero: React.FC<HeroProps> = ({ onExplore }) => {
           et les actions concrètes pour protéger notre environnement.
         </p>
 
-        <div className="animate-fade-in flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <div className="animate-fade-in flex flex-col items-center justify-center gap-4 sm:flex-row" style={{ animationDelay: "0.6s" }}>
           <button
             onClick={onExplore}
             className="
@@ -87,10 +87,9 @@ const Hero: React.FC<HeroProps> = ({ onExplore }) => {
               bg-accent
               px-10 py-4
               text-lg font-semibold text-white
-              shadow-[0_0_25px_rgba(0,200,120,0.7)]
+              shadow-[0_0_25px_rgba(16,185,129,0.7)]
               backdrop-blur-sm
-              transition-all duration-300
-              hover:scale-110 hover:bg-accent/90 hover:shadow-[0_0_35px_rgba(0,200,120,0.9)]
+              transition-transform duration-300 hover:scale-105 animate-glow
             "
           >
             Explorer les articles
@@ -110,7 +109,7 @@ const Hero: React.FC<HeroProps> = ({ onExplore }) => {
               className={`h-2 rounded-full transition-all duration-300 ${
                 index === currentImage
                   ? "w-8 bg-accent"
-                  : "w-2 bg-primary-foreground/40 hover:bg-primary-foreground/60"
+                  : "w-2 bg-white/40 hover:bg_white/60"
               }`}
               aria-label={`Image ${index + 1}`}
             />

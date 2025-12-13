@@ -16,7 +16,7 @@ export default function PostCard({ post, onReadMore }: PostCardProps) {
   };
 
   return (
-    <article className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white/80 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-green-200 hover:shadow-xl">
+    <article className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white/80 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-green-200 hover:shadow-xl animate-fade-in">
       {post.image_url && (
         <div className="relative h-48 overflow-hidden">
           <img

@@ -12,7 +12,7 @@ export default function CategoryFilter({
   onSelectCategory,
 }: CategoryFilterProps) {
   return (
-    <section className="mb-10 rounded-3xl border border-gray-100 bg-white/80 p-5 shadow-sm">
+    <section className="mb-10 rounded-3xl border border-gray-100 bg-white/80 p-5 shadow-sm animate-fade-in">
       <div className="mb-4 flex items-center justify-between gap-3">
         <div>
           <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-gray-500">
@@ -30,7 +30,7 @@ export default function CategoryFilter({
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
         <button
           onClick={() => onSelectCategory(null)}
-          className={`flex items-center justify-between rounded-2xl border px-4 py-3 text-sm transition-all ${
+          className={`flex items-center justify-between rounded-2xl border px-4 py-3 text-sm transition-all hover:-translate-y-[1px] ${
             selectedCategory === null
               ? 'border-green-600 bg-green-600 text-white shadow-md shadow-green-600/30'
               : 'border-gray-200 bg-gray-50 text-gray-700 hover:border-green-500/60 hover:bg-white'
@@ -63,7 +63,7 @@ export default function CategoryFilter({
             <button
               key={category.id}
               onClick={() => onSelectCategory(category.id)}
-              className={`flex items-center justify-between rounded-2xl border px-4 py-3 text-sm transition-all ${
+              className={`flex items-center justify-between rounded-2xl border px-4 py-3 text-sm transition-all hover:-translate-y-[1px] ${
                 isSelected
                   ? 'border-green-600 bg-green-50 text-green-800 shadow-sm shadow-green-100'
                   : 'border-gray-200 bg-gray-50 text-gray-700 hover:border-green-500/60 hover:bg-white'

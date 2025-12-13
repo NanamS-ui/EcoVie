@@ -15,12 +15,12 @@ export default function Header({ onNavigate, currentPage }: HeaderProps) {
   };
 
   return (
-    <header className="sticky top-0 z-50 border-b border-gray-100 bg-white/80 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-gray-100 bg-white/80 backdrop-blur-md shadow-sm">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <button
             onClick={() => handleNavigateClick('home')}
-            className="group flex items-center space-x-2 text-green-700 hover:text-green-800 transition-colors"
+            className="group flex items-center space-x-2 text-green-700 hover:text-green-800 transition-colors hover:scale-[1.02] transition-transform focus:outline-none focus:ring-2 focus:ring-green-500/40 rounded-full"
           >
             <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-green-100 group-hover:bg-green-200 transition-colors">
               <Leaf className="w-5 h-5" />
@@ -32,45 +32,48 @@ export default function Header({ onNavigate, currentPage }: HeaderProps) {
           <div className="hidden md:flex items-center space-x-8">
             <button
               onClick={() => handleNavigateClick('home')}
-              className={`relative text-sm font-medium tracking-wide transition-colors ${
+              className={`relative text-sm font-medium tracking-wide transition-colors hover:-translate-y-[1px] transition-transform focus:outline-none focus:ring-2 focus:ring-green-500/30 rounded-md ${
                 currentPage === 'home'
                   ? 'text-green-700'
                   : 'text-gray-600 hover:text-green-700'
               }`}
+              aria-current={currentPage === 'home' ? 'page' : undefined}
             >
-              <span>Accueil</span>
+              <span className="inline-block rounded-full px-3 py-1 transition-colors hover:bg-green-50">Accueil</span>
               <span
-                className={`pointer-events-none absolute -bottom-1 left-0 h-[2px] rounded-full bg-green-600 transition-all ${
+                className={`pointer-events-none absolute -bottom-1 left-0 h-[2px] rounded-full transition-all bg-gradient-to-r from-green-500 via-emerald-500 to-teal-500 ${
                   currentPage === 'home' ? 'w-full opacity-100' : 'w-0 opacity-0 group-hover:w-full'
                 }`}
               />
             </button>
             <button
               onClick={() => handleNavigateClick('articles')}
-              className={`relative text-sm font-medium tracking-wide transition-colors ${
+              className={`relative text-sm font-medium tracking-wide transition-colors hover:-translate-y-[1px] transition-transform focus:outline-none focus:ring-2 focus:ring-green-500/30 rounded-md ${
                 currentPage === 'articles'
                   ? 'text-green-700'
                   : 'text-gray-600 hover:text-green-700'
               }`}
+              aria-current={currentPage === 'articles' ? 'page' : undefined}
             >
-              <span>Articles</span>
+              <span className="inline-block rounded-full px-3 py-1 transition-colors hover:bg-green-50">Articles</span>
               <span
-                className={`pointer-events-none absolute -bottom-1 left-0 h-[2px] rounded-full bg-green-600 transition-all ${
+                className={`pointer-events-none absolute -bottom-1 left-0 h-[2px] rounded-full transition-all bg-gradient-to-r from-green-500 via-emerald-500 to-teal-500 ${
                   currentPage === 'articles' ? 'w-full opacity-100' : 'w-0 opacity-0 group-hover:w-full'
                 }`}
               />
             </button>
             <button
               onClick={() => handleNavigateClick('contact')}
-              className={`relative text-sm font-medium tracking-wide transition-colors ${
+              className={`relative text-sm font-medium tracking-wide transition-colors hover:-translate-y-[1px] transition-transform focus:outline-none focus:ring-2 focus:ring-green-500/30 rounded-md ${
                 currentPage === 'contact'
                   ? 'text-green-700'
                   : 'text-gray-600 hover:text-green-700'
               }`}
+              aria-current={currentPage === 'contact' ? 'page' : undefined}
             >
-              <span>Contact</span>
+              <span className="inline-block rounded-full px-3 py-1 transition-colors hover:bg-green-50">Contact</span>
               <span
-                className={`pointer-events-none absolute -bottom-1 left-0 h-[2px] rounded-full bg-green-600 transition-all ${
+                className={`pointer-events-none absolute -bottom-1 left-0 h-[2px] rounded-full transition-all bg-gradient-to-r from-green-500 via-emerald-500 to-teal-500 ${
                   currentPage === 'contact' ? 'w-full opacity-100' : 'w-0 opacity-0 group-hover:w-full'
                 }`}
               />
@@ -89,7 +92,7 @@ export default function Header({ onNavigate, currentPage }: HeaderProps) {
 
         {/* Mobile nav */}
         {isMobileOpen && (
-          <div className="md:hidden pb-3">
+          <div className="md:hidden pb-3 animate-fade-in">
             <div className="flex flex-col space-y-1 rounded-2xl border border-gray-100 bg-white/95 p-2 shadow-md">
               <button
                 onClick={() => handleNavigateClick('home')}
