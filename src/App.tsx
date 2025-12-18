@@ -2,12 +2,13 @@ import { useState, useEffect } from 'react';
 import { supabase, Category, PostWithCategory } from './lib/supabase';
 import Header from './components/Header';
 import Hero from './components/Hero';
-import CategoryFilter from './components/CategoryFilter';
+import CategoryFilterAlt from './components/CategoryFilterAlt';
 import PostCard from './components/PostCard';
 import PostDetail from './components/PostDetail';
 import Footer from './components/Footer';
+import BackOffice from './components/BackOffice';
 
-type Page = 'home' | 'articles' | 'post' | 'contact';
+type Page = 'home' | 'articles' | 'post' | 'contact' | 'backoffice';
 
 function App() {
   const [currentPage, setCurrentPage] = useState<Page>('home');
@@ -61,6 +62,9 @@ function App() {
       setCurrentPage('contact');
       setSelectedPost(null);
       window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else if (page === 'backoffice') {
+      setCurrentPage('backoffice');
+      setSelectedPost(null);
     }
   };
 
@@ -89,6 +93,10 @@ function App() {
         <Footer onNavigate={handleNavigate} />
       </>
     );
+  }
+
+  if (currentPage === 'backoffice') {
+    return <BackOffice onBack={() => handleNavigate('home')} />;
   }
 
   return (
@@ -121,7 +129,7 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <h1 className="text-4xl font-bold text-gray-900 mb-8">Tous les Articles</h1>
 
-          <CategoryFilter
+          <CategoryFilterAlt
             categories={categories}
             selectedCategory={selectedCategory}
             onSelectCategory={setSelectedCategory}

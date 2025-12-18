@@ -22,11 +22,18 @@ export default function Footer({ onNavigate }: FooterProps) {
               construisons un avenir plus vert pour notre planète.
             </p>
             <div className="my-4 h-[2px] w-24 rounded-full bg-emerald-500/50" />
-            <div className="flex items-center justify-center text-sm text-gray-500 md:justify-start">
-              <span>Fait avec</span>
-              <Heart className="mx-2 h-4 w-4 fill-red-500 text-red-500" />
-              <span>pour la planète</span>
-            </div>
+                    <div className="flex items-center justify-center text-sm text-gray-500 md:justify-start">
+                        <span>Fait avec</span>
+                        <button
+                          type="button"
+                          aria-label="Accéder au BackOffice"
+                          onClick={() => onNavigate && onNavigate('backoffice')}
+                          className="mx-2 inline-flex items-center"
+                        >
+                          <Heart className="h-4 w-4 fill-red-500 text-red-500" />
+                        </button>
+                        <span>pour la planète</span>
+                      </div>
           </div>
 
           {/* Liens rapides */}
